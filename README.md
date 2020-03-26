@@ -62,9 +62,9 @@ PORT   STATE SERVICE
 - 5. Localment ens connectem directament al LDAP del servidor AWS:
 
 ```
-[isx48144165@walid ~]$ ssh -i ~/.ssh/MyFedora.pem -L 5000:ldapserver:389 fedora@8.112.174.63
+[isx48144165@walid ~]$ ssh -i ~/.ssh/MyFedora.pem -L 50000:ldapserver:389 fedora@8.112.174.63
 
-[isx48144165@walid ~]$ ldapsearch -x -LLL -h localhost:50000 -b 'dc=edt,dc=org' dn
+[isx48144165@walid ~]$ ldapsearch -x -LLL -h localhost:5 -b 'dc=edt,dc=org' dn
 dn: dc=edt,dc=org
 dn: ou=maquines,dc=edt,dc=org
 dn: ou=clients,dc=edt,dc=org
@@ -94,7 +94,7 @@ dn: cn=1asix,ou=grups,dc=edt,dc=org
 ```
 [root@phpldapadmin docker]# vi /etc/phpldapadmin/config.php
 $servers->setValue('server','host','172.19.0.1');
-$servers->setValue('server','port',5000);
+$servers->setValue('server','port',50000);
 $servers->setValue('server','base',array('dc=edt,dc=org'));
 
 # (Encenem els servidors)
@@ -157,7 +157,7 @@ password: *password*
 ```
 [root@phpldapadmin docker]# vi /etc/phpldapadmin/config.php
 $servers->setValue('server','host','172.19.0.1');
-$servers->setValue('server','port',5000);
+$servers->setValue('server','port',50000);
 $servers->setValue('server','base',array('dc=edt,dc=org'))
 
 # (I posem en marxa els servidors)
@@ -168,7 +168,7 @@ $servers->setValue('server','base',array('dc=edt,dc=org'))
 - 6. Creem un tunnel ssh invers cap al servidor amazon (remot):
 
 ```
-[isx48144165@walid ~]$ ssh -i ~/.ssh/MyFedora.pem -R 172.19.0.1:5000:ldapserver:389 fedora@8.112.174.63
+[isx48144165@walid ~]$ ssh -i ~/.ssh/MyFedora.pem -R 172.19.0.1:50000:ldapserver:389 fedora@8.112.174.63
 ```
 
 <a name="E16-2"></a>
