@@ -1,7 +1,7 @@
 # Walid el Harrak
 ## The Crazy Thing
 ## Index
-1. [Exemple-15 Ldap-remot i phpldapadmin-local](#E15)  
+1. [Exemple-15. Ldap-remot i phpldapadmin-local](#E15)  
   1.1 [Desplegar el servei LDAP](#E15-1)  
   1.2 [Desplegar el servei PHPLDAPADMIN](#E15-2)  
 2. [Exemple-16. Ldap-local i phpldapadmin-remot](#E16)  
@@ -28,7 +28,7 @@ l’aula (host-local) desplegem un container amb phpldapadmin. Aquest container 
 - Ara ja podem visualitzar des del host de l’aula el servei phpldapadmin, accedint al port 8080 del container phpldapadmin o al port que hem fet map del host de l’aula (si és que ho hem fet).
 
 <a name="E15-1"></a>
-### Desplegar el servei LDAP
+### 1.1 Desplegar el servei LDAP
 - 1. Ens connectem a la consola AWS:
 
 ```
@@ -76,7 +76,7 @@ dn: cn=1asix,ou=grups,dc=edt,dc=org
 ```
 
 <a name="E15-2"></a>
-### Desplegar el servei PHPLDAPADMIN
+### 1.2 Desplegar el servei PHPLDAPADMIN
 - 1. Engeguem el servidor phpldapadmin de forma interactiva ja que haurem de fer alguns canvis:
 
 ```
@@ -113,7 +113,7 @@ password: *password*
 ```
 
 <a name="E16"></a>
-## Exemple-16-Ldap-local i phpldapadmin-remot
+## 2. Exemple-16. Ldap-local i phpldapadmin-remot
 ### Exemple-16. Ldap-local i phpldapadmin-remot
 - **Explicació:**
 - Obrir localment un ldap al host. Engegar al AWS un container phpldapadmin que usa el ldap del host d el’aula. Visualitzar localment al host de l’aula el phpldapadmin del container de AWS EC2. Ahí ez nà.
@@ -131,7 +131,7 @@ password: *password*
 - *nota* atenció al binding que fa ssh dels ports dels túnels SSH (per defecte són només al localhost).
 
 <a name="E16-1"></a>
-### 2.1.Engegar LDAP i PHPLDAPADMIN i que tinguin connectivitat
+### 2.1 Engegar LDAP i PHPLDAPADMIN i que tinguin connectivitat
 - 1. Engeguem localment un servidor ldap:
 
 ```
@@ -172,7 +172,7 @@ $servers->setValue('server','base',array('dc=edt,dc=org'))
 ```
 
 <a name="E16-2"></a>
-### 2.2.Ara cal accedir des del host de l’aula al port 8080 del PHPLDAPADMIN per visualitzar-lo
+### 2.2 Ara cal accedir des del host de l’aula al port 8080 del PHPLDAPADMIN per visualitzar-lo
 
 - 1. Creeam un tunel directe al host local on obrim el port 8080 i ho redireix al servidor amazon (remot):
 ```
