@@ -1,14 +1,15 @@
 # Walid el Harrak
 ## The Crazy Thing
 ## Index
-1. [Exemple-15 Ldap-remot i phpldapadmin-local](#Exemple-15-Ldap-remot i phpldapadmin-local)  
-  1.1 [Desplegar el servei LDAP](#Desplegar el servei LDAP)  
-  1.2 [Desplegar el servei phpldapadmin](#Desplegar el servei PHPLDAPADMIN)  
-2. [Exemple-16. Ldap-local i phpldapadmin-remot](#Exemple-16-Ldap-local i phpldapadmin-remot)  
-  2.1 [Engegar ldap i phpldapadmin i que tinguin connectivitat](#Engegar LDAP i PHPLDAPADMIN i que tinguin connectivitat)    
-  2.2 [Ara cal accedir des del host de l’aula al port 8080 del phpldapadmin per visualitzar-lo](#Ara cal accedir des del host de l’aula al port 8080 del PHPLDAPADMIN per visualitzar-lo)
+1. [Exemple-15 Ldap-remot i phpldapadmin-local](#E15)  
+  1.1 [Desplegar el servei LDAP](#E15-1)  
+  1.2 [Desplegar el servei PHPLDAPADMIN](#E15-2)  
+2. [Exemple-16. Ldap-local i phpldapadmin-remot](#E16)  
+  2.1 [Engegar LDAP i PHPLDAPADMIN i que tinguin connectivitat](#E16-1)    
+  2.2 [Ara cal accedir des del host de l’aula al port 8080 del PHPLDAPADMIN per visualitzar-lo](#E16-2)
 
-## Exemple-15-Ldap-remot i phpldapadmin-local
+<a name="E15"></a>
+## 1. Exemple-15. Ldap-remot i phpldapadmin-local
 ### Exemple-15 Ldap-remot i phpldapadmin-local
 - **Explicació:**
 - Desplegem dins d’un container Docker (host-remot) en una AMI (host-destí) el servei ldap amb el firewall de la AMI només obrint el port 22. Localment al host de
@@ -26,6 +27,7 @@ l’aula (host-local) desplegem un container amb phpldapadmin. Aquest container 
 - Configurar el phpldapadmin per que trobi la base de dades ldap accedint al host de l’aula al port acabat de crear amb el túnel directe ssh.
 - Ara ja podem visualitzar des del host de l’aula el servei phpldapadmin, accedint al port 8080 del container phpldapadmin o al port que hem fet map del host de l’aula (si és que ho hem fet).
 
+<a name="E15-1"></a>
 ### Desplegar el servei LDAP
 - 1. Ens connectem a la consola AWS:
 
@@ -73,6 +75,7 @@ dn: cn=1asix,ou=grups,dc=edt,dc=org
 [...]
 ```
 
+<a name="E15-2"></a>
 ### Desplegar el servei PHPLDAPADMIN
 - 1. Engeguem el servidor phpldapadmin de forma interactiva ja que haurem de fer alguns canvis:
 
@@ -109,6 +112,7 @@ user: cn=Manager,dc=edt,dc=org
 password: *password*
 ```
 
+<a name="E16"></a>
 ## Exemple-16-Ldap-local i phpldapadmin-remot
 ### Exemple-16. Ldap-local i phpldapadmin-remot
 - **Explicació:**
@@ -126,6 +130,7 @@ password: *password*
 - Ara amb un navegador ja podem visualitzar localment des del host de l’aula el phpldapadmin connectant al pot directe acabat de crear.
 - *nota* atenció al binding que fa ssh dels ports dels túnels SSH (per defecte són només al localhost).
 
+<a name="E16-1"></a>
 ### 2.1.Engegar LDAP i PHPLDAPADMIN i que tinguin connectivitat
 - 1. Engeguem localment un servidor ldap:
 
@@ -166,6 +171,7 @@ $servers->setValue('server','base',array('dc=edt,dc=org'))
 [isx48144165@walid ~]$ ssh -i ~/.ssh/MyFedora.pem -R 172.19.0.1:5000:ldapserver:389 fedora@8.112.174.63
 ```
 
+<a name="E16-2"></a>
 ### 2.2.Ara cal accedir des del host de l’aula al port 8080 del PHPLDAPADMIN per visualitzar-lo
 
 - 1. Creeam un tunel directe al host local on obrim el port 8080 i ho redireix al servidor amazon (remot):
