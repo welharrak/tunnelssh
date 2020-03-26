@@ -1,14 +1,14 @@
 # Walid el Harrak
 ## The Crazy Thing
 ## Index
-1. [Exemple-15 Ldap-remot i phpldapadmin-local](#Exemple-15.Ldap-remot i phpldapadmin-local)  
+1. [Exemple-15 Ldap-remot i phpldapadmin-local](#Exemple-15-Ldap-remot i phpldapadmin-local)  
   1.1 [Desplegar el servei LDAP](#Desplegar el servei LDAP)  
   1.2 [Desplegar el servei phpldapadmin](#Desplegar el servei PHPLDAPADMIN)  
-2. [Exemple-16. Ldap-local i phpldapadmin-remot](#Exemple-16.Ldap-local i phpldapadmin-remot)  
+2. [Exemple-16. Ldap-local i phpldapadmin-remot](#Exemple-16-Ldap-local i phpldapadmin-remot)  
   2.1 [Engegar ldap i phpldapadmin i que tinguin connectivitat](#Engegar LDAP i PHPLDAPADMIN i que tinguin connectivitat)    
   2.2 [Ara cal accedir des del host de l’aula al port 8080 del phpldapadmin per visualitzar-lo](#Ara cal accedir des del host de l’aula al port 8080 del PHPLDAPADMIN per visualitzar-lo)
 
-## Exemple-15.Ldap-remot i phpldapadmin-local
+## Exemple-15-Ldap-remot i phpldapadmin-local
 ### Exemple-15 Ldap-remot i phpldapadmin-local
 - **Explicació:**
 - Desplegem dins d’un container Docker (host-remot) en una AMI (host-destí) el servei ldap amb el firewall de la AMI només obrint el port 22. Localment al host de
@@ -109,7 +109,7 @@ user: cn=Manager,dc=edt,dc=org
 password: *password*
 ```
 
-## Exemple-16.Ldap-local i phpldapadmin-remot
+## Exemple-16-Ldap-local i phpldapadmin-remot
 ### Exemple-16. Ldap-local i phpldapadmin-remot
 - **Explicació:**
 - Obrir localment un ldap al host. Engegar al AWS un container phpldapadmin que usa el ldap del host d el’aula. Visualitzar localment al host de l’aula el phpldapadmin del container de AWS EC2. Ahí ez nà.
